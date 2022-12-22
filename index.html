@@ -46,12 +46,12 @@
                 <h2 class="tittle">About Me</h2>
                 <div class="about-content">
                     <div class="column left">
-                        <img src=".\file\pradeep1.jpg" alt="">
+                        <img src=".\file\pradeep.jpeg" alt="">
                     </div>
                     <div class="column right">
                         <div class="text">I'am Pradeep Kumar A and I'am a <span>Associate Enginner - </span><span class="typing-2"></span></div>
                         <p>Hi I was born and raised in Erode, Tamil Nadu, India. I have Completed B.Tech degree in INFORMATION TECHNOLOGY from INSTITUTE OF ROAD AND TRANSPORT TECHNOLOGY with<b> 7.6</b> CGPA. I done my Schoolings in KONGU NATIONAL MATRIC HR SEC SCHOOL and I have secured <b>86%</b> in 12<sup>th</sup> standard and <b>94%</b> in 10<sup>th</sup> standard</p>
-                        <a href="./file/Pradeep Resume.pdf">View CV</a>
+                        <a href="./file/Pradeep Resume.pdf" target="_blank">View CV</a>
                     </div>
                 </div>
             </div>
@@ -184,7 +184,7 @@
                 <div class="contact-content">
                     <div class="column left">
                         <div class="text">Get in Touch</div>
-                        <p>You can get me in touch through email which in below, You can also follow me through <span class="typing-3" style="font-size: 1.5em; color:crimson;"></span></p>
+                        <p>You can get me in touch through email which in below, also meesage me. </p>
                         <div class="icons">
                             <div class="row">
                                 <i class="fas fa-user"></i>
@@ -211,14 +211,27 @@
                         </div>
                     </div>
                     <div class="column right">
-                        <div class="text">Follow me</div>
-                            <div class="fields">
-                               <i class="fa fa-linkedin-square" style="font-size:48px;color:blue"></i><a href="https://www.linkedin.com/in/pradeep-kumar-577b761b5/" style="font-size: 1.5em;"> Linkedin </a><br>
-                               <i class="fa fa-medium" style="font-size:48px;"></i><a href="https://medium.com/@pradeepak571" style="font-size: 1.5em;"> Medium</a><br>
-                               <i class="fa fa-github" style="font-size:48px;"></i><a href="https://github.com/Pradeepak5" style="font-size: 1.5em;"> GitHub</a>
-                            </div>
-                                
-                    </div>
+                        <div class="text">Message me</div>
+                            <form name="submit-to-google-sheet">
+                                <div class="field">
+                                    <div class="field name">
+                                        <input type="text" name="Name" placeholder="Name" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="email" name="Email" placeholder="Email" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" name="Subject" placeholder="Subject" required>
+                                    </div>
+                                    <div class="field textarea">
+                                        <textarea cols="30" rows="10" name="Description" placeholder="Describe project..." required></textarea>
+                                    </div>
+                                    <div class="button">
+                                        <button type="submit">Send message</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <span id="msg"></span>
                 </div>
             </div>
         </section>
@@ -229,5 +242,23 @@
         </footer>
     
         <script src="script.js"></script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyi5Y9WJodR0hHJ47kuokkyVlp4KvZfML_7rb2oNrqvKCQBHS8t6SnmHgPnikYVSPf3/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg=document.getElementById("msg")
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent to Pradeep successfully";
+                    setTimeout(function(){
+                        msg.innerHTML="";
+                    },1500);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
     </body>
 </html>

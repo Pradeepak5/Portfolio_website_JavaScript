@@ -33,13 +33,13 @@ $(document).ready(function(){
 
     //typing animation script
     var typed = new Typed(".typing",{
-        strings:["FullStack Developer",".Net Developer","Blog Writer"],
+        strings:["FullStack Developer","Blog Writer"],
         typeSpeed:100,
         backSpeed:60,
         loop:true
     })
     var typed = new Typed(".typing-2",{
-        strings:["FullStack Developer",".Net Developer","Blog Writer"],
+        strings:["FullStack Developer","Blog Writer"],
         typeSpeed:100,
         backSpeed:60,
         loop:true
