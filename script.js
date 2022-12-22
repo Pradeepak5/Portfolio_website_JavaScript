@@ -31,7 +31,7 @@ $(document).ready(function(){
         }
     });
 
-    //typing animation script
+    //Typing Animation Script
     var typed = new Typed(".typing",{
         strings:["FullStack Developer","Blog Writer"],
         typeSpeed:100,
